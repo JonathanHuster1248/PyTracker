@@ -1,0 +1,51 @@
+Example endpoint returning a list of colors by palette
+In this example the specification is taken from external YAML file
+---
+parameters:
+  - in: path
+    name: name
+    description: "The name of the root beer to check existance of"
+    schema:
+      $ref: "#/definitions/Name"
+    required: true
+definitions:
+  Name:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        example: "Obi"
+responses:
+  200:
+    description: A boolean of whether the name is included in the database or not
+
+info:
+  title: Sample API
+  description: Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.
+  version: 0.1.9
+servers:
+  - url: http://api.example.com/v1
+    description: Optional server description, e.g. Main (production) server
+  - url: http://staging-api.example.com
+    description: Optional server description, e.g. Internal staging server for testing
+paths:
+  /users:
+    get:
+      summary: Returns a list of users.
+      description: Optional extended description in CommonMark or HTML.
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The root beer brand name
+          schema:
+            type : string
+      responses:
+        '200':    # status code
+          description: A boolean of whether the name is included in the database or not
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
