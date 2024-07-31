@@ -1,0 +1,5 @@
+summary: Returns a list of root beers.
+description: The list of all the names in the db
+responses:
+  '200':    # status code
+    description: List of root beers in the database

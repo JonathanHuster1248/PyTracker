@@ -1,0 +1,12 @@
+summary: Returns a list of root beers.
+description: The list of all the names in the db
+parameters:
+  - name: name
+    in: path
+    required: true
+    description: The name of the rootbeer.
+    schema:
+      type: string
+responses:
+  '200':    # status code
+    description: A boolean of whether the name is included in the database or not
